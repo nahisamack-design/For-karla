@@ -1,0 +1,2016 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* ==================================================
+   GENERAL
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 204, 0, .08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 180, 0, .06),
+            transparent 35%
+        ),
+
+        #070707;
+
+    color: white;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+section {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* ==================================================
+   PANTALLA INICIAL
+================================================== */
+
+#intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255, 216, 61, .15),
+            transparent 30%
+        ),
+
+        #050505;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+
+}
+
+
+#intro.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.intro-content {
+
+    position: relative;
+
+    padding: 30px;
+
+    animation:
+        introAppear 1.5s ease;
+
+}
+
+
+@keyframes introAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.intro-flower {
+
+    font-size: 90px;
+
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(255, 216, 61, .55)
+        );
+
+    animation:
+        introFlower 4s ease-in-out infinite;
+
+}
+
+
+@keyframes introFlower {
+
+    0%, 100% {
+
+        transform:
+            rotate(-5deg)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(5deg)
+            scale(1.08);
+
+    }
+
+}
+
+
+.intro-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: #ffd83d;
+
+    margin: 15px auto 25px;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,216,61,.8);
+
+}
+
+
+.intro-small {
+
+    color: #ffd83d;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.intro-content h1 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:
+        clamp(75px, 13vw, 130px);
+
+    font-weight: 500;
+
+    line-height: .9;
+
+    margin: 20px 0;
+
+}
+
+
+.intro-description {
+
+    color: #999;
+
+    line-height: 1.8;
+
+}
+
+
+#enterButton {
+
+    margin-top: 35px;
+
+    padding:
+        16px 30px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255,216,61,.6);
+
+    background: transparent;
+
+    color: #ffd83d;
+
+    font-weight: 600;
+
+    transition: .4s;
+
+}
+
+
+#enterButton:hover {
+
+    background: #ffd83d;
+
+    color: #111;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 40px
+        rgba(255,216,61,.3);
+
+}
+
+
+#enterButton span {
+
+    margin-left: 10px;
+
+}
+
+
+.intro-symbols {
+
+    margin-top: 50px;
+
+    color: #555;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ==================================================
+   FONDO
+================================================== */
+
+#particles,
+#floatingFlowers {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 3px;
+
+    background: #ffd83d;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px #ffd83d;
+
+    animation:
+        particleFloat linear infinite;
+
+}
+
+
+@keyframes particleFloat {
+
+    from {
+
+        transform:
+            translateY(110vh);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-10vh);
+
+    }
+
+}
+
+
+.background-flower {
+
+    position: absolute;
+
+    opacity: .18;
+
+    animation:
+        backgroundFlower linear infinite;
+
+}
+
+
+@keyframes backgroundFlower {
+
+    from {
+
+        transform:
+            translateY(-10vh)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ==================================================
+   ELEMENTOS GYM DE FONDO
+================================================== */
+
+#gymBackground {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+}
+
+
+.gym-decoration {
+
+    position: absolute;
+
+    opacity: .035;
+
+    filter:
+        grayscale(1);
+
+}
+
+
+.dumbbell {
+
+    font-size: 180px;
+
+    right: -30px;
+
+    top: 20%;
+
+    transform: rotate(-20deg);
+
+}
+
+
+.weight {
+
+    font-size: 180px;
+
+    left: -60px;
+
+    top: 55%;
+
+}
+
+
+.weight2 {
+
+    font-size: 130px;
+
+    right: 8%;
+
+    bottom: 10%;
+
+}
+
+
+.lightning {
+
+    font-size: 220px;
+
+    left: 30%;
+
+    top: 30%;
+
+}
+
+
+.muscle {
+
+    font-size: 180px;
+
+    right: 35%;
+
+    top: 70%;
+
+}
+
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    padding:
+        0 7%;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    z-index: 10;
+
+}
+
+
+.logo {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+}
+
+
+.logo span {
+
+    font-size: 20px;
+
+}
+
+
+.header-badge {
+
+    border:
+        1px solid
+        rgba(255,216,61,.25);
+
+    padding:
+        9px 17px;
+
+    border-radius: 50px;
+
+    color: #ffd83d;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding:
+        120px 10% 80px;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap: 60px;
+
+}
+
+
+.hero-content {
+
+    max-width: 650px;
+
+}
+
+
+.eyebrow {
+
+    color: #ffd83d;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero h1 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:
+        clamp(75px, 10vw, 135px);
+
+    font-weight: 500;
+
+    line-height: .85;
+
+}
+
+
+.hero h1 span {
+
+    color: #ffd83d;
+
+    display: block;
+
+    text-shadow:
+        0 0 40px
+        rgba(255,216,61,.25);
+
+}
+
+
+.hero h2 {
+
+    font-size:
+        clamp(25px, 3vw, 40px);
+
+    margin-top: 35px;
+
+    line-height: 1.15;
+
+}
+
+
+.hero p {
+
+    color: #999;
+
+    line-height: 1.8;
+
+    margin-top: 20px;
+
+    max-width: 560px;
+
+}
+
+
+.gold-button {
+
+    margin-top: 30px;
+
+    padding:
+        16px 28px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #ffd83d;
+
+    color: #111;
+
+    font-weight: 700;
+
+    transition: .35s;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,216,61,.15);
+
+}
+
+
+.gold-button:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 45px
+        rgba(255,216,61,.3);
+
+}
+
+
+.gold-button span {
+
+    margin-left: 10px;
+
+}
+
+
+
+/* ==================================================
+   HERO VISUAL
+================================================== */
+
+.hero-visual {
+
+    width: 400px;
+
+    height: 400px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.hero-glow {
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    background: #ffd83d;
+
+    opacity: .1;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    animation:
+        glowPulse 3s infinite alternate;
+
+}
+
+
+@keyframes glowPulse {
+
+    from {
+
+        transform: scale(.8);
+
+    }
+
+    to {
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+
+.gym-circle {
+
+    width: 230px;
+
+    height: 230px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,216,61,.3);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    backdrop-filter: blur(5px);
+
+    box-shadow:
+        inset 0 0 50px
+        rgba(255,216,61,.05);
+
+}
+
+
+.gym-icon {
+
+    font-size: 125px;
+
+    animation:
+        gymFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes gymFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-18px);
+
+    }
+
+}
+
+
+.orbit {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(255,216,61,.15);
+
+    border-radius: 50%;
+
+}
+
+
+.orbit-one {
+
+    width: 320px;
+    height: 320px;
+
+    transform:
+        rotate(20deg);
+
+}
+
+
+.orbit-two {
+
+    width: 390px;
+    height: 150px;
+
+    transform:
+        rotate(-30deg);
+
+}
+
+
+.floating-gym {
+
+    position: absolute;
+
+    font-size: 32px;
+
+    animation:
+        floatingGym 4s ease-in-out infinite;
+
+}
+
+
+.gym-one {
+
+    top: 30px;
+    left: 30px;
+
+}
+
+
+.gym-two {
+
+    top: 70px;
+    right: 10px;
+
+    animation-delay: 1s;
+
+}
+
+
+.gym-three {
+
+    bottom: 50px;
+    left: 20px;
+
+    animation-delay: 2s;
+
+}
+
+
+.gym-four {
+
+    bottom: 15px;
+    right: 45px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+@keyframes floatingGym {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px)
+            rotate(8deg);
+
+    }
+
+}
+
+
+
+/* ==================================================
+   SECCIONES
+================================================== */
+
+.message-section,
+.gym-section,
+.bouquet-section {
+
+    padding:
+        130px 10%;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.section-heading span {
+
+    color: #ffd83d;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:
+        clamp(35px, 5vw, 60px);
+
+    font-weight: 500;
+
+}
+
+
+
+/* ==================================================
+   MENSAJE
+================================================== */
+
+.message-card {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+    padding: 55px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,216,61,.02)
+        );
+
+    border:
+        1px solid
+        rgba(255,216,61,.12);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition: .4s;
+
+}
+
+
+.message-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,216,61,.4);
+
+}
+
+
+.message-flower {
+
+    font-size: 100px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,216,61,.3)
+        );
+
+}
+
+
+.mini-label {
+
+    color: #ffd83d;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.message-content h3 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:
+        clamp(30px, 4vw, 48px);
+
+    font-weight: 500;
+
+    margin:
+        15px 0 25px;
+
+}
+
+
+.message-content p {
+
+    color: #999;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+}
+
+
+.highlight-text {
+
+    color: #ffd83d;
+
+    font-weight: 600;
+
+    margin-top: 25px;
+
+}
+
+
+
+/* ==================================================
+   GYM CARDS
+================================================== */
+
+.gym-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.gym-card {
+
+    padding: 40px 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        .5s;
+
+}
+
+
+.gym-card:hover {
+
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(255,216,61,.4);
+
+    background:
+        rgba(255,216,61,.04);
+
+}
+
+
+.card-icon {
+
+    font-size: 60px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.gym-card h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.gym-card p {
+
+    color: #888;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* ==================================================
+   BARRA GYM
+================================================== */
+
+.gym-floor {
+
+    margin-top: 90px;
+
+    text-align: center;
+
+    opacity: .7;
+
+}
+
+
+.barbell {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+}
+
+
+.barbell span {
+
+    width: 30px;
+
+    height: 55px;
+
+    border:
+        3px solid
+        #555;
+
+}
+
+
+.bar {
+
+    width: 350px;
+
+    max-width: 60vw;
+
+    height: 8px;
+
+    background: #555;
+
+    border-radius: 10px;
+
+}
+
+
+.floor-text {
+
+    color: #555;
+
+    letter-spacing: 8px;
+
+    font-size: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+
+/* ==================================================
+   FRASE
+================================================== */
+
+.quote-section {
+
+    min-height: 70vh;
+
+    padding: 100px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.quote-flower {
+
+    font-size: 75px;
+
+    animation:
+        flowerRotate 7s linear infinite;
+
+}
+
+
+@keyframes flowerRotate {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+.quote-section h2 {
+
+    max-width: 1000px;
+
+    margin-top: 30px;
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:
+        clamp(38px, 6vw, 75px);
+
+    line-height: 1.1;
+
+    font-weight: 500;
+
+}
+
+
+.quote-section p {
+
+    color: #ffd83d;
+
+    margin-top: 30px;
+
+}
+
+
+
+/* ==================================================
+   RAMO
+================================================== */
+
+.bouquet-section {
+
+    min-height: 100vh;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,216,61,.08),
+            transparent 55%
+        );
+
+}
+
+
+.bouquet-heading .section-number {
+
+    color: #ffd83d;
+
+    letter-spacing: 4px;
+
+    font-size: 12px;
+
+}
+
+
+.bouquet-heading h2 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:
+        clamp(60px, 9vw, 110px);
+
+    font-weight: 500;
+
+    margin-top: 20px;
+
+}
+
+
+.bouquet-heading p {
+
+    color: #888;
+
+}
+
+
+.bouquet {
+
+    width: 650px;
+
+    max-width: 95vw;
+
+    height: 600px;
+
+    position: relative;
+
+    margin:
+        60px auto 0;
+
+    opacity: 0;
+
+    transform:
+        scale(.55)
+        translateY(120px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 2s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.bouquet.show {
+
+    opacity: 1;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+}
+
+
+
+/* ==================================================
+   TALLOS
+================================================== */
+
+.stems {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.stem {
+
+    position: absolute;
+
+    bottom: 80px;
+
+    left: 50%;
+
+    width: 8px;
+
+    height: 360px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #263c0e,
+            #71921f,
+            #263c0e
+        );
+
+    border-radius: 10px;
+
+    transform-origin:
+        bottom center;
+
+}
+
+
+.stem1 {
+    transform: rotate(-38deg);
+}
+
+.stem2 {
+    transform: rotate(-30deg);
+}
+
+.stem3 {
+    transform: rotate(-20deg);
+}
+
+.stem4 {
+    transform: rotate(-10deg);
+}
+
+.stem5 {
+    transform: rotate(8deg);
+}
+
+.stem6 {
+    transform: rotate(20deg);
+}
+
+.stem7 {
+    transform: rotate(30deg);
+}
+
+.stem8 {
+    transform: rotate(38deg);
+}
+
+
+
+/* ==================================================
+   GIRASOLES
+================================================== */
+
+.sunflower {
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    transform:
+        scale(0);
+
+    transition:
+        transform 1.2s
+        cubic-bezier(.17,.89,.32,1.3);
+
+}
+
+
+.bouquet.show .sunflower {
+
+    transform:
+        scale(1);
+
+}
+
+
+.sunflower::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(
+            #ffd83d 0deg 18deg,
+            transparent 18deg 45deg
+        );
+
+}
+
+
+.sunflower::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border-radius: 50%;
+
+    background:
+        #ffca16;
+
+}
+
+
+.flower-center {
+
+    position: absolute;
+
+    width: 55px;
+
+    height: 55px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #7d4300,
+            #351b00
+        );
+
+    z-index: 2;
+
+    box-shadow:
+        inset 0 0 10px
+        rgba(0,0,0,.7);
+
+}
+
+
+.flower1 {
+
+    left: 30px;
+    top: 100px;
+
+}
+
+
+.flower2 {
+
+    left: 145px;
+    top: 30px;
+
+}
+
+
+.flower3 {
+
+    left: 270px;
+    top: 0;
+
+}
+
+
+.flower4 {
+
+    right: 40px;
+    top: 80px;
+
+}
+
+
+.flower5 {
+
+    left: 90px;
+    top: 180px;
+
+}
+
+
+.flower6 {
+
+    right: 100px;
+    top: 170px;
+
+}
+
+
+.flower7 {
+
+    left: 240px;
+    top: 145px;
+
+}
+
+
+.bouquet.show .flower1 {
+    transition-delay: .1s;
+}
+
+.bouquet.show .flower2 {
+    transition-delay: .2s;
+}
+
+.bouquet.show .flower3 {
+    transition-delay: .3s;
+}
+
+.bouquet.show .flower4 {
+    transition-delay: .4s;
+}
+
+.bouquet.show .flower5 {
+    transition-delay: .5s;
+}
+
+.bouquet.show .flower6 {
+    transition-delay: .6s;
+}
+
+.bouquet.show .flower7 {
+    transition-delay: .7s;
+}
+
+
+
+/* ==================================================
+   PAPEL DEL RAMO
+================================================== */
+
+.bouquet-paper {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 410px;
+
+    height: 230px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #b78917,
+            #ffe58b,
+            #c09625
+        );
+
+    clip-path:
+        polygon(
+            8% 0,
+            92% 0,
+            100% 100%,
+            50% 80%,
+            0 100%
+        );
+
+    box-shadow:
+        0 -10px 35px
+        rgba(0,0,0,.5);
+
+}
+
+
+.paper-ribbon {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 35px;
+
+    transform:
+        translateX(-50%);
+
+    width: 80px;
+
+    height: 35px;
+
+    background:
+        #8d6511;
+
+    border-radius: 10px;
+
+}
+
+
+
+/* ==================================================
+   MENSAJE FINAL
+================================================== */
+
+.final-message {
+
+    max-width: 650px;
+
+    margin:
+        30px auto 0;
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        1s ease;
+
+}
+
+
+.final-message.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.final-line {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #ffd83d;
+
+    margin:
+        0 auto 25px;
+
+}
+
+
+.final-message h2 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 55px;
+
+    color: #ffd83d;
+
+}
+
+
+.final-message p {
+
+    color: #999;
+
+    line-height: 1.8;
+
+    margin: 20px 0;
+
+}
+
+
+.final-message strong {
+
+    font-size: 18px;
+
+}
+
+
+.final-icons {
+
+    margin-top: 30px;
+
+    color: #666;
+
+}
+
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+
+    padding:
+        40px 20px;
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+}
+
+
+footer small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    color: #333;
+
+}
+
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 850px) {
+
+
+    .header-badge {
+
+        display: none;
+
+    }
+
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 130px;
+
+    }
+
+
+    .hero p {
+
+        margin:
+            20px auto 0;
+
+    }
+
+
+    .hero-visual {
+
+        width: 300px;
+
+        height: 300px;
+
+    }
+
+
+    .gym-circle {
+
+        width: 190px;
+
+        height: 190px;
+
+    }
+
+
+    .gym-icon {
+
+        font-size: 100px;
+
+    }
+
+
+    .message-card {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 35px 25px;
+
+    }
+
+
+    .gym-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .section-heading {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .bouquet {
+
+        transform:
+            scale(.62)
+            translateY(100px);
+
+        transform-origin:
+            center top;
+
+        height: 500px;
+
+    }
+
+
+    .bouquet.show {
+
+        transform:
+            scale(.62)
+            translateY(0);
+
+    }
+
+
+    .bouquet-paper {
+
+        width: 330px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+
+    .intro-small {
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .intro-flower {
+
+        font-size: 70px;
+
+    }
+
+
+    .hero {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    .message-section,
+    .gym-section,
+    .bouquet-section {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    .bouquet {
+
+        transform:
+            scale(.52)
+            translateY(100px);
+
+    }
+
+
+    .bouquet.show {
+
+        transform:
+            scale(.52)
+            translateY(0);
+
+    }
+
+}
